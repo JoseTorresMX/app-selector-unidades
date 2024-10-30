@@ -58,7 +58,7 @@ function convertTime() {
 
 function clearInputs() {
     // Seleccionar todos los inputs dentro de los tabs
-    const inputs = document.querySelectorAll('input.input-sin-borde');
+    const inputs = document.querySelectorAll('input.form-control');
     inputs.forEach(input => {
         input.value = ''; // Limpiar el valor de cada input
     });
