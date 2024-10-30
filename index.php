@@ -1,140 +1,110 @@
-<?php include("./templates/header.php");?>
-        <header>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Convertidor de Unidades</span>
-            </div>
-        </nav>
-        </header>
-        <main>
-        <div class="container mt-5">
-        <!-- Tabs -->
-        <ul class="nav nav-tabs nav-justified" id="unitTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a href="#length" class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="length" aria-selected="true">Longitud</a>
+<?php include("./templates/header.php");?>    <div class="container mt-4">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+                <a href="#longitud" class="nav-link active" data-bs-toggle="tab">Longitud</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#mass" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="mass" aria-selected="false">Masa/Peso</a>
+            <li class="nav-item">
+                <a href="#masa" class="nav-link" data-bs-toggle="tab">Masa/Peso</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#volume" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="volume" aria-selected="false">Volumen</a>
+            <li class="nav-item">
+                <a href="#volumen" class="nav-link" data-bs-toggle="tab">Volumen</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#temperature" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="temperature" aria-selected="false">Temperatura</a>
+            <li class="nav-item">
+                <a href="#temperatura" class="nav-link" data-bs-toggle="tab">Temperatura</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#energy" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="energy" aria-selected="false">Energía</a>
+            <li class="nav-item">
+                <a href="#energia" class="nav-link" data-bs-toggle="tab">Energía</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#area" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="area" aria-selected="false">Área</a>
+            <li class="nav-item">
+                <a href="#area" class="nav-link" data-bs-toggle="tab">Área</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#speed" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="speed" aria-selected="false">Velocidad</a>
+            <li class="nav-item">
+                <a href="#velocidad" class="nav-link" data-bs-toggle="tab">Velocidad</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#data" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="data" aria-selected="false">Datos</a>
+            <li class="nav-item">
+                <a href="#datos" class="nav-link" data-bs-toggle="tab">Datos</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a href="#time" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="time" aria-selected="false">Tiempo</a>
+            <li class="nav-item">
+                <a href="#tiempo" class="nav-link" data-bs-toggle="tab">Tiempo</a>
             </li>
         </ul>
+  
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="longitud">
+                <div class="row">
+                    <div class="col-6">Kilómetro (km) <input type="number" class="form-control" id="input-km" value="1" oninput="convertLength()"></div>
+                    <div class="col-6">Metro (m) <input type="number" class="form-control" id="input-m" value="0" readonly></div>
+                    <div class="col-6">Milla (mi) <input type="number" class="form-control" id="input-mi" value="0" readonly></div>
+                    <div class="col-6">Centímetro (cm) <input type="number" class="form-control" id="input-cm" value="0" readonly></div>
+                </div>
+            </div>
 
-        <!-- Tab content -->
-        <div class="tab-content" id="unitTabsContent">
-            <div class="tab-pane fade show active" id="length" role="tabpanel" aria-labelledby="length-tab">
-                <h4>Unidades de Longitud</h4>
-                <ul>
-                    <li>Metro (m)</li>
-                    <li>Centímetro (cm)</li>
-                    <li>Milímetro (mm)</li>
-                    <li>Kilómetro (km)</li>
-                    <li>Pulgada (in)</li>
-                    <li>Pie (ft)</li>
-                    <li>Yarda (yd)</li>
-                    <li>Milla (mi)</li>
-                </ul>
+            <div class="tab-pane fade" id="masa">
+                <div class="row">
+                    <div class="col-6">Tonelada (t) <input type="number" class="form-control" id="input-t" value="0" oninput="convertMass()"></div>
+                    <div class="col-6">Kilogramo (kg) <input type="number" class="form-control" id="input-kg" value="0" readonly></div>
+                    <div class="col-6">Libra (lb) <input type="number" class="form-control" id="input-lb" value="0" readonly></div>
+                    <div class="col-6">Onza (oz) <input type="number" class="form-control" id="input-oz" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="mass" role="tabpanel" aria-labelledby="mass-tab">
-                <h4>Unidades de Masa/Peso</h4>
-                <ul>
-                    <li>Kilogramo (kg)</li>
-                    <li>Gramo (g)</li>
-                    <li>Miligramo (mg)</li>
-                    <li>Tonelada métrica (t)</li>
-                    <li>Libra (lb)</li>
-                    <li>Onza (oz)</li>
-                </ul>
+
+            <div class="tab-pane fade" id="volumen">
+                <div class="row">
+                    <div class="col-6">Metro cúbico (m³) <input type="number" class="form-control" id="input-m3" value="0" oninput="convertVolume()"></div>
+                    <div class="col-6">Litro (L) <input type="number" class="form-control" id="input-L" value="0" readonly></div>
+                    <div class="col-6">Galón (gal) <input type="number" class="form-control" id="input-gal" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="volume" role="tabpanel" aria-labelledby="volume-tab">
-                <h4>Unidades de Volumen</h4>
-                <ul>
-                    <li>Litro (L)</li>
-                    <li>Mililitro (mL)</li>
-                    <li>Centímetro cúbico (cm³)</li>
-                    <li>Metro cúbico (m³)</li>
-                    <li>Galón (gal)</li>
-                    <li>Onza líquida (oz)</li>
-                </ul>
+
+            <div class="tab-pane fade" id="temperatura">
+                <div class="row">
+                    <div class="col-6">Celsius (°C) <input type="number" class="form-control" id="input-celsius" value="0" oninput="convertTemperature()"></div>
+                    <div class="col-6">Fahrenheit (°F) <input type="number" class="form-control" id="input-fahrenheit" value="0" readonly></div>
+                    <div class="col-6">Kelvin (K) <input type="number" class="form-control" id="input-kelvin" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="temperature" role="tabpanel" aria-labelledby="temperature-tab">
-                <h4>Unidades de Temperatura</h4>
-                <ul>
-                    <li>Celsius (°C)</li>
-                    <li>Fahrenheit (°F)</li>
-                    <li>Kelvin (K)</li>
-                </ul>
+
+            <div class="tab-pane fade" id="energia">
+                <div class="row">
+                    <div class="col-6">Kilovatio-hora (kWh) <input type="number" class="form-control" id="input-kWh" value="0" oninput="convertEnergy()"></div>
+                    <div class="col-6">Joule (J) <input type="number" class="form-control" id="input-J" value="0" readonly></div>
+                    <div class="col-6">BTU <input type="number" class="form-control" id="input-BTU" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="energy" role="tabpanel" aria-labelledby="energy-tab">
-                <h4>Unidades de Energía</h4>
-                <ul>
-                    <li>Julio (J)</li>
-                    <li>Caloría (cal)</li>
-                    <li>Kilovatio-hora (kWh)</li>
-                    <li>BTU (Unidad Térmica Británica)</li>
-                </ul>
+
+            <div class="tab-pane fade" id="area">
+                <div class="row">
+                    <div class="col-6">Metro cuadrado (m²) <input type="number" class="form-control" id="input-m2" value="0" oninput="convertArea()"></div>
+                    <div class="col-6">Kilómetro cuadrado (km²) <input type="number" class="form-control" id="input-km2" value="0" readonly></div>
+                    <div class="col-6">Hectárea (ha) <input type="number" class="form-control" id="input-ha" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="area" role="tabpanel" aria-labelledby="area-tab">
-                <h4>Unidades de Área</h4>
-                <ul>
-                    <li>Metro cuadrado (m²)</li>
-                    <li>Centímetro cuadrado (cm²)</li>
-                    <li>Hectárea (ha)</li>
-                    <li>Kilómetro cuadrado (km²)</li>
-                    <li>Acres</li>
-                </ul>
+
+            <div class="tab-pane fade" id="velocidad">
+                <div class="row">
+                    <div class="col-6">Kilómetro por hora (km/h) <input type="number" class="form-control" id="input-kmph" value="0" oninput="convertSpeed()"></div>
+                    <div class="col-6">Metro por segundo (m/s) <input type="number" class="form-control" id="input-mps" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="speed" role="tabpanel" aria-labelledby="speed-tab">
-                <h4>Unidades de Velocidad</h4>
-                <ul>
-                    <li>Metro por segundo (m/s)</li>
-                    <li>Kilómetro por hora (km/h)</li>
-                    <li>Millas por hora (mph)</li>
-                    <li>Nudos (kn)</li>
-                </ul>
+
+            <div class="tab-pane fade" id="datos">
+                <div class="row">
+                    <div class="col-6">Kilobyte (KB) <input type="number" class="form-control" id="input-KB" value="0" oninput="convertData()"></div>
+                    <div class="col-6">Megabyte (MB) <input type="number" class="form-control" id="input-MB" value="0" readonly></div>
+                    <div class="col-6">Gigabyte (GB) <input type="number" class="form-control" id="input-GB" value="0" readonly></div>
+                    <div class="col-6">Terabyte (TB) <input type="number" class="form-control" id="input-TB" value="0" readonly></div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
-                <h4>Unidades de Datos</h4>
-                <ul>
-                    <li>Bit</li>
-                    <li>Byte</li>
-                    <li>Kilobyte (KB)</li>
-                    <li>Megabyte (MB)</li>
-                    <li>Gigabyte (GB)</li>
-                    <li>Terabyte (TB)</li>
-                </ul>
-            </div>
-            <div class="tab-pane fade" id="time" role="tabpanel" aria-labelledby="time-tab">
-                <h4>Unidades de Tiempo</h4>
-                <ul>
-                    <li>Segundo (s)</li>
-                    <li>Minuto (min)</li>
-                    <li>Hora (h)</li>
-                    <li>Día</li>
-                    <li>Año</li>
-                </ul>
+
+            <div class="tab-pane fade" id="tiempo">
+                <div class="row">
+                    <div class="col-6">Segundo (s) <input type="number" class="form-control" id="input-s" value="0" oninput="convertTime()"></div>
+                    <div class="col-6">Minuto (min) <input type="number" class="form-control" id="input-min" value="0" readonly></div>
+                    <div class="col-6">Hora (h) <input type="number" class="form-control" id="input-h" value="0" readonly></div>
+                    <div class="col-6">Día <input type="number" class="form-control" id="input-dia" value="0" readonly></div>
+                </div>
             </div>
         </div>
     </div>
-
-        </main>
-<?php include("./templates/footer.php");
+    <p></p>
+<?php include("./templates/footer.php");?>

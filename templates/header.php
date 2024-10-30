@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Convertidor de Unidades | Jose Torres</title>
+        <title>Inicio | Jose Torres</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -18,6 +18,16 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+        
+<!--Icono de tab de navegador -->
+        <link rel="icon" type="image/png" href="/favicon.png">
     </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      Convertidor de Unidades
+    </a>
+  </div>
+</nav>
