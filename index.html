@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+        <p>Jose Angel Torres Santos #Control 19112115</p>
+      <input type="number" id="valor" placeholder="Ingrese un valor" />
+      <select id="conversion">
+        <option value="metros_kilometros">Metros a Kilómetros</option>
+        <option value="kilometros_metros">Kilómetros a Metros</option>
+        <option value="celsius_fahrenheit">Celsius a Fahrenheit</option>
+        <option value="fahrenheit_celsius">Fahrenheit a Celsius</option>
+        <option value="kilogramos_libras">Kilogramos a Libras</option>
+        <option value="libras_kilogramos">Libras a Kilogramos</option>
+        <option value="metros_cuadrados_centimetros_cuadrados">
+          Metros Cuadrados a Centímetros Cuadrados
+        </option>
+        <option value="centimetros_cuadrados_metros_cuadrados">
+          Centímetros Cuadrados a Metros Cuadrados
+        </option>
+        <option value="litros_mililitros">Litros a Mililitros</option>
+        <option value="mililitros_litros">Mililitros a Litros</option>
+        <option value="metros_cubicos_litros">Metros Cúbicos a Litros</option>
+        <option value="litros_metros_cubicos">Litros a Metros Cúbicos</option>
+      </select>
+      <button onclick="convertir()">Convertir</button>
+      <div id="resultado"></div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

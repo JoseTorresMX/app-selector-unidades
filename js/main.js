@@ -1,65 +1,56 @@
-// Funciones de conversión
-function convertLength() {
-    const km = parseFloat(document.getElementById('input-km').value) || 0;
-    document.getElementById('input-m').value = km * 1000; // Convertir a metros
-    document.getElementById('input-mi').value = km * 0.621371; // Convertir a millas
-    document.getElementById('input-cm').value = km * 100000; // Convertir a centímetros
-}
+function convertir() {
+  const valor = parseFloat(document.getElementById("valor").value);
+  const conversion = document.getElementById("conversion").value;
+  let resultado;
 
-function convertMass() {
-    const t = parseFloat(document.getElementById('input-t').value) || 0;
-    document.getElementById('input-kg').value = t * 1000; // Convertir a kilogramos
-    document.getElementById('input-lb').value = t * 2204.62; // Convertir a libras
-    document.getElementById('input-oz').value = t * 35273.96; // Convertir a onzas
-}
+  // Validación básica
+  if (isNaN(valor)) {
+    alert("Por favor, ingrese un número válido.");
+    return;
+  }
 
-function convertVolume() {
-    const m3 = parseFloat(document.getElementById('input-m3').value) || 0;
-    document.getElementById('input-L').value = m3 * 1000; // Convertir a litros
-    document.getElementById('input-gal').value = m3 * 264.172; // Convertir a galones
-}
+  // Lógica de conversión según la opción seleccionada
+  switch (conversion) {
+    case "metros_kilometros":
+      resultado = valor / 1000;
+      break;
+    case "kilometros_metros":
+      resultado = valor * 1000;
+      break;
+    case "celsius_fahrenheit":
+      resultado = (valor * 9) / 5 + 32;
+      break;
+    case "fahrenheit_celsius":
+      resultado = ((valor - 32) * 5) / 9;
+      break;
+    case "kilogramos_libras":
+      resultado = valor * 2.20462;
+      break;
+    case "libras_kilogramos":
+      resultado = valor / 2.20462;
+      break;
+    case "metros_cuadrados_centimetros_cuadrados":
+      resultado = valor * 10000;
+      break;
+    case "centimetros_cuadrados_metros_cuadrados":
+      resultado = valor / 10000;
+      break;
+    case "litros_mililitros":
+      resultado = valor * 1000;
+      break;
+    case "mililitros_litros":
+      resultado = valor / 1000;
+      break;
+    case "metros_cubicos_litros":
+      resultado = valor * 1000;
+      break;
+    case "litros_metros_cubicos":
+      resultado = valor / 1000;
+      break;
 
-function convertTemperature() {
-    const celsius = parseFloat(document.getElementById('input-celsius').value) || 0;
-    document.getElementById('input-fahrenheit').value = (celsius * 9/5) + 32; // Convertir a Fahrenheit
-    document.getElementById('input-kelvin').value = celsius + 273.15; // Convertir a Kelvin
-}
+    default:
+      resultado = "Conversión no válida";
+  }
 
-function convertEnergy() {
-    const kWh = parseFloat(document.getElementById('input-kWh').value) || 0;
-    document.getElementById('input-J').value = kWh * 3600000; // Convertir a Joules
-    document.getElementById('input-BTU').value = kWh * 3412.14; // Convertir a BTU
-}
-
-function convertArea() {
-    const m2 = parseFloat(document.getElementById('input-m2').value) || 0;
-    document.getElementById('input-km2').value = m2 / 1000000; // Convertir a kilómetros cuadrados
-    document.getElementById('input-ha').value = m2 / 10000; // Convertir a hectáreas
-}
-
-function convertSpeed() {
-    const kmph = parseFloat(document.getElementById('input-kmph').value) || 0;
-    document.getElementById('input-mps').value = kmph / 3.6; // Convertir a metros por segundo
-}
-
-function convertData() {
-    const KB = parseFloat(document.getElementById('input-KB').value) || 0;
-    document.getElementById('input-MB').value = KB / 1024; // Convertir a Megabytes
-    document.getElementById('input-GB').value = KB / (1024 * 1024); // Convertir a Gigabytes
-    document.getElementById('input-TB').value = KB / (1024 * 1024 * 1024); // Convertir a Terabytes
-}
-
-function convertTime() {
-    const seconds = parseFloat(document.getElementById('input-s').value) || 0;
-    document.getElementById('input-min').value = seconds / 60; // Convertir a minutos
-    document.getElementById('input-h').value = seconds / 3600; // Convertir a horas
-    document.getElementById('input-dia').value = seconds / 86400; // Convertir a días
-}
-
-function clearInputs() {
-    // Seleccionar todos los inputs dentro de los tabs
-    const inputs = document.querySelectorAll('input.form-control');
-    inputs.forEach(input => {
-        input.value = ''; // Limpiar el valor de cada input
-    });
+  document.getElementById("resultado").textContent = resultado;
 }
